@@ -137,9 +137,3 @@ Each user is responsible for manually entering activities and actions in the aud
 #### Metadata Management
 
 Users can add metadata to documents, such as author, creation date, and associated keywords. This feature enhances document organization and search capabilities based on specific criteria.
-
-
-## License
-
-[//]: # (Specify the license under which the project is distributed.)
-
