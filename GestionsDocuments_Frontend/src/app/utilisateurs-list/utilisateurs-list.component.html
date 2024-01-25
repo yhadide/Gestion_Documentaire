@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <input type="text" class="form-control" placeholder="Search user..." (input)="onSearchInput($event)">
+      </div>
+      <div class="col-2">
+        <button class="btn btn-primary" (click)="searchUtilisateurs()">Search</button>
+      </div>
+    </div>
+      <div class="row mt-4">
+        <div class="col-md-6 col-xl-3" *ngFor="let utilisateur of utilisateursList">
+          <div class="card mb-3">
+            <div class="card-body row">
+              <div class="col-6">
+                <a href=""><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""
+                    class="img-fluid rounded-circle w-60"></a>
+              </div>
+              <div class="col-6 card-title align-self-center">
+                <h5>{{ utilisateur.nomUtilisateur }}</h5>
+                <p class="m-0">{{ utilisateur.role }}</p>
+              </div>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <i class="fa fa-envelope float-right"></i>Email : <a href="#">{{ utilisateur.email }}</a>
+              </li>
+              <li class="list-group-item">
+                <i class="fa fa-phone float-right"></i>Phone : {{ utilisateur.numeroTelephone }}
+              </li>
+            </ul>
+            <div class="card-body">
+              <div class="float-right btn-group btn-group-sm">
+                <button class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip"
+                  data-original-title="Edit" (click)="OpenDocModEdit(utilisateur)">
+                  <i class="fa fa-pencil"></i> Edit
+                </button>
+                <button class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip"
+                  data-original-title="Delete" (click)="deleteUtilisateur(utilisateur)">
+                  <i class="fa fa-times"></i> Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <button mat-raised-button (click)="OpenDocMod()">Create a user</button>
+      </div>
+    </div>
+  </div>
+</div>

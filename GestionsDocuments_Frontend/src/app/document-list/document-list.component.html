@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+  <div class="container">
+    <h2>Liste des documents</h2>
+    <div class="row">
+      <div class="col-6">
+        <input type="text" class="form-control" placeholder="Chercher un document par type..." (input)="onSearchInput($event)">
+      </div>
+      <div class="col-2">
+        <button class="btn btn-primary" (click)="searchDocuments()">Chercher</button>
+      </div>
+      <div class="col-4">
+        <button mat-raised-button (click)="OpenDocMod()">créer un document</button>
+      </div>
+    </div>
+    <br>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Expediteur</th>
+          <th>Destinataire</th>
+          <th>Contenu</th>
+          <th>Date</th>
+          <th>Download Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let document of documents">
+          <td>{{ document.idDocument }}</td>
+          <td>{{ document.typeDocument }}</td>
+          <td>{{ document.expediteur }}</td>
+          <td>{{ document.destinataire }}</td>
+          <td>{{ document.contenu }}</td>
+          <td>{{ document.date | date }}</td>
+          <td>
+            <a [href]="getImageDownloadUrl(document)" download>
+              <button class="btn btn-primary">Download</button>
+            </a>
+          </td>
+          <td>
+            <div class="button-container">
+             <button class="btn btn-danger" (click)="deleteDocument(document.idDocument)" *ngIf="role !== 'Guest'">Delete</button>
+             <button class="btn btn-primary" (click)="OpenDocModEdit(document.idDocument)" *ngIf="role !== 'Guest'">Edit</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

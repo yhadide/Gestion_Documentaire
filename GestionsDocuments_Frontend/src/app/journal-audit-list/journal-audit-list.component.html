@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+  <div class="container">
+    <h2>Journal Audit List</h2>
+
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Document ID</th>
+          <th>Utilisateur ID</th>
+          <th>Type d'Activité</th>
+          <th>Horodatage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let journalAudit of journalAudits">
+          <td>{{ journalAudit.idJournal }}</td>
+          <td>{{ journalAudit.document.idDocument }}</td>
+          <td>{{ journalAudit.utilisateur.idUtilisateur }}</td>
+          <td>{{ journalAudit.typeActivite }}</td>
+          <td>{{ journalAudit.horodatage }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button mat-raised-button (click)="OpenDocMod()">Create journal audit</button>
+</div>

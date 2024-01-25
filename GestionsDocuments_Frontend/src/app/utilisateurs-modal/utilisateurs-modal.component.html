@@ -1,0 +1,32 @@
+<form [formGroup]="utilisateurForm" (ngSubmit)="onFormSubmit()">
+    <!-- <h1 mat-dialog-title>{{ inputdata.title }}</h1> -->
+    <div mat-dialog-content>
+      <mat-form-field>
+        <mat-label>User Name</mat-label>
+        <input matInput formControlName="nomUtilisateur" placeholder="Ex. JohnDoe">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="motDePasse">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+          <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="Ex. john.doe@example.com">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Phone Number</mat-label>
+        <input matInput type="tel" formControlName="numeroTelephone" placeholder="Ex. 555-1234">
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onFormSubmit()">Close</button>
+      <button mat-button (click)="onCancelClick()">Save</button>
+    </div>
+  </form>
+  

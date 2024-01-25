@@ -1,0 +1,37 @@
+<form [formGroup]="journalAuditForm" (ngSubmit)="onFormSubmit()">
+    <!-- <h2 mat-dialog-title>{{ data ? 'Edit' : 'Add' }} Journal Audit Entry</h2> -->
+  
+    <div mat-dialog-content>
+      <mat-form-field>
+        <mat-label>Document</mat-label>
+        <mat-select formControlName="document">
+          <mat-option *ngFor="let document of documents" [value]="document">
+            {{ document.idDocument }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Utilisateur</mat-label>
+        <mat-select formControlName="utilisateur">
+          <mat-option *ngFor="let utilisateur of utilisateurs" [value]="utilisateur">
+            {{ utilisateur.nomUtilisateur }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Type d'activité</mat-label>
+        <mat-select formControlName="typeActivite">
+          <mat-option *ngFor="let typeActivite of typeActivites" [value]="typeActivite">
+            {{ typeActivite }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancelClick()">Cancel</button>
+      <button mat-button (click)="onFormSubmit()">Save</button>
+    </div>
+  </form>

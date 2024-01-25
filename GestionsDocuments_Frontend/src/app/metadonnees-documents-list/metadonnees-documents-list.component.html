@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+    <div class="container">
+      <h2>Metadonnées de la liste de documents</h2>
+      <div class="row">
+        <!-- Search input -->
+        <div class="col-6">
+          <input type="text" class="form-control" placeholder="Search metadonnees documents..." (input)="onSearchInput($event)">
+        </div>
+        <div class="col-2">
+          <button class="btn btn-primary" (click)="searchMetadonneesDocuments()">Search</button>
+        </div>
+        <div class="col-4">
+          <button mat-raised-button (click)="openMetadonneesDocMod()">Create a metadonnees document</button>
+        </div>
+      </div>
+      <br>
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Document ID</th>
+            <th>Auteur</th>
+            <th>Mots-clés</th>
+            <th>Date de création</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let metadonneesDoc of metadonneesDocuments">
+            <td>{{ metadonneesDoc.idMetadonnee }}</td>
+            <td>{{ metadonneesDoc.document.idDocument }}</td>
+            <td>{{ metadonneesDoc.auteur }}</td>
+            <td>{{ metadonneesDoc.motsCles }}</td>
+            <td>{{ metadonneesDoc.dateCreation | date }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteMetadonneesDocument(metadonneesDoc)" *ngIf="role !== 'Guest'">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

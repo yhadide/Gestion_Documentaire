@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+  <div class="container">
+    <h2>Flux Travail Documents List</h2>
+
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Document ID</th>
+          <th>Étape du Flux Travail</th>
+          <th>Utilisateur</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fluxTravailDocument of fluxTravailDocumentsList">
+          <td>{{ fluxTravailDocument.idFluxTravail }}</td>
+          <td>{{ fluxTravailDocument.document.idDocument }}</td>
+          <td>{{ fluxTravailDocument.etapeFluxTravail }}</td>
+          <td>{{ fluxTravailDocument.utilisateur.nomUtilisateur }}</td>
+          <td>{{ fluxTravailDocument.statut }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="OpenDocEdit(fluxTravailDocument)" *ngIf="role !== 'Guest'">edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <button mat-raised-button (click)="OpenDocMod()">Create flux travail</button>
+  </div>
+</div>

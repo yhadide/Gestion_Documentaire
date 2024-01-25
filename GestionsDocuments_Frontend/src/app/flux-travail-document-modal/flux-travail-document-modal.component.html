@@ -1,0 +1,32 @@
+<form [formGroup]="fluxTravailDocumentsForm" (ngSubmit)="onFormSubmit()">
+    <!-- <h1 mat-dialog-title>{{ inputdata.title }}</h1> -->
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Document</mat-label>
+            <mat-select formControlName="document">
+              <mat-option *ngFor="let document of documents" [value]="document.idDocument">{{ document.idDocument }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      <mat-form-field>
+        <mat-label>Step</mat-label>
+        <mat-select formControlName="etapeFluxTravail">
+          <mat-option *ngFor="let etape of etapes" [value]="etape">{{ etape }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>User</mat-label>
+        <mat-select formControlName="utilisateur">
+          <mat-option *ngFor="let utilisateur of utilisateurs" [value]="utilisateur.idUtilisateur">{{ utilisateur.nomUtilisateur }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <input matInput formControlName="statut" placeholder="Ex. In Progress">
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancelClick()">Close</button>
+      <button mat-button (click)="onFormSubmit()">Save</button>
+    </div>
+  </form>
+  

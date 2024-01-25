@@ -1,0 +1,48 @@
+<div class="dashboard-container">
+  <div class="container">
+    <!-- Afficher les documents de la table 'documents' -->
+    <h2>Liste des Documents</h2>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let document of displayedDocuments">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ document.typeDocument }}</h5>
+            <p class="card-text">Expéditeur : {{ document.expediteur }}</p>
+            <p class="card-text">Destinataire : {{ document.destinataire }}</p>
+            <p class="card-text">Contenu : {{ document.contenu }}</p>
+            <p class="card-text">Date : {{ document.date | date }}</p>
+            <a [href]="getImageDownloadUrl(document)" download class="btn btn-primary">Télécharger l'image</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Afficher les métadonnées de la table 'metadonnees_documents' -->
+    <h2>Liste des Métadonnées</h2>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let metadata of displayedMetadata">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ metadata.auteur }}</h5>
+            <p class="card-text">Date de Création : {{ metadata.dateCreation | date }}</p>
+            <p class="card-text">Mots Clés : {{ metadata.motsCles }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Afficher les documents du flux de travail de la table 'flux_travail_documents' -->
+    <h2>Liste des Documents du Flux de Travail</h2>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let workflowDocument of displayedWorkflowDocuments">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Étape : {{ workflowDocument.etapeFluxTravail }}</h5>
+            <p class="card-text">Statut : {{ workflowDocument.statut }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

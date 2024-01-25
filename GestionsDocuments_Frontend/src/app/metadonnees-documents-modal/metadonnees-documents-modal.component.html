@@ -1,0 +1,30 @@
+<form [formGroup]="metadonneesDocumentsForm" (ngSubmit)="onFormSubmit()">
+  <!-- <h1 mat-dialog-title>{{ inputdata.title }}</h1> -->
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Document</mat-label>
+      <mat-select formControlName="idDocument">
+        <mat-option *ngFor="let document of documents" [value]="document.idDocument">{{ document.idDocument}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Auteur</mat-label>
+      <input matInput formControlName="auteur">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Mots Clés</mat-label>
+      <input matInput formControlName="motsCles">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Choisire la date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateCreation">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()">Close</button>
+    <button mat-button (click)="onFormSubmit()">Save</button>
+  </div>
+</form>

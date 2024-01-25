@@ -1,0 +1,96 @@
+<section *ngIf="loggedIn; else loginSection">
+  <!-- SIDEBAR -->
+  <section id="sidebar" [ngClass]="status ? 'hide' : ''">
+    <!-- Brand logo -->
+    <a routerLink="dashboard" class="brand">
+      <i class='bx bxs-file-doc'></i>
+      <span class="text">S.G.D</span>
+    </a>
+
+    <!-- Top-level side menu items -->
+    <ul class="side-menu top">
+      <!-- Dashboard -->
+      <li [ngClass]="{ 'active': selected === 'dashboard' }" (click)="selected = 'dashboard'">
+        <a routerLink="dashboard">
+          <i class='bx bxs-dashboard'></i>
+          <span class="text">Dashboard</span>
+        </a>
+      </li>
+
+      <!-- Documents -->
+      <li [ngClass]="{ 'active': selected === 'documents' }" (click)="selected = 'documents'">
+        <a routerLink="documents">
+          <i class='bx bxs-folder-open'></i>
+          <span class="text">Documents</span>
+        </a>
+      </li>
+
+      <!-- Metadonnees Documents -->
+      <li [ngClass]="{ 'active': selected === 'Metadonnees-documents' }" (click)="selected = 'Metadonnees-documents'">
+        <a routerLink="metadonnees-documents">
+          <i class='bx bxs-file-plus'></i>
+          <span class="text">Metadonnees Documents</span>
+        </a>
+      </li>
+
+      <!-- Flux Travail Document -->
+      <li [ngClass]="{ 'active': selected === 'flux-travail-documents' }" (click)="selected = 'flux-travail-documents'">
+        <a routerLink="flux-travail-documents">
+          <i class='bx bxs-doughnut-chart'></i>
+          <span class="text">Flux Travail Document</span>
+        </a>
+      </li>
+
+      <!-- Journal Audit -->
+      <li [ngClass]="{ 'active': selected === 'journal-audit' }" (click)="selected = 'journal-audit'">
+        <a routerLink="journal-audit">
+          <i class='bx bxs-message-dots'></i>
+          <span class="text">Journal Audit</span>
+        </a>
+      </li>
+
+      <!-- Utilisateurs -->
+      <li *ngIf="role === 'Admin'" [ngClass]="{ 'active': selected === 'utilisateurs' }"
+        (click)="selected = 'utilisateurs'">
+        <a routerLink="utilisateurs">
+          <i class='bx bxs-group'></i>
+          <span class="text">Utilisateurs</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Logout -->
+    <ul class="side-menu">
+      <li>
+        <a href="#" class="logout">
+          <i class='bx bxs-log-out-circle'></i>
+          <span class="text">Déconnexion</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <!-- SIDEBAR -->
+
+  <!-- CONTENT -->
+  <section id="content">
+    <!-- NAVBAR -->
+    <nav>
+      <!-- Menu toggle button -->
+      <i (click)="addToggle()" class='bx bx-menu'></i>
+      <span class="text"> Utilisateur connecté : {{ userName }}</span>
+    </nav>
+    <!-- NAVBAR -->
+
+    <!-- MAIN -->
+    <!-- This is where the content of the routed components will be rendered -->
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh; overflow-y: auto;">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- MAIN -->
+  </section>
+  <!-- CONTENT -->
+</section>
+
+<ng-template #loginSection>
+  <app-login-user (loginSuccess)="onLoginSuccess()"></app-login-user>
+</ng-template>
