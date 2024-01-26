@@ -1,4 +1,4 @@
-# Project Title : Gestion Documentaire
+# Project Title : SGD (système de gestion des documents)
 
 ## Overview
 
