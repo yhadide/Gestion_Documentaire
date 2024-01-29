@@ -1,5 +1,9 @@
 # Project Title : SGD (système de gestion des documents)
 
+## Disclaimer
+
+**Note:** This project is still under active development and is far from being finished. There are likely to be bugs, incomplete features, and areas that need improvement. Your feedback, contributions, and suggestions are highly appreciated as they will help in shaping the future direction of this project. Thank you for your understanding and patience.
+
 ## Overview
 
 This project is an ongoing initiative developed during an internship, utilizing Spring Boot for the backend and AngularJS for the frontend as well as MySQL for database management. The application focuses on efficient user and document management, offering features such as user registration, document handling, workflow tracking, audit logging, and metadata management.
